@@ -2,5 +2,6 @@ build/
 dist/
 .DS_Store
 .idea/
+.idea
 *.spec
 .gitignore
