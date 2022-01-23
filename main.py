@@ -1,6 +1,5 @@
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
 import os
 import time
 from datetime import datetime
@@ -16,64 +15,53 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+def log_file(file_extension, file_name, file_location):
+    hour_and_minute = datetime.now().strftime("%H:%M:%S")
+    print(f'{bcolors.UNDERLINE}{hour_and_minute}{bcolors.ENDC} - [{file_extension.upper()}] {bcolors.HEADER}{file_name}{bcolors.ENDC} was moved to {bcolors.OKGREEN}{file_location}{bcolors.ENDC}')
+
+
+def file_transfer(file_location, file_name, file_extension, src):
+    new_destination = file_location + "/" + file_name
+    os.rename(src, new_destination)
+    log_file(file_extension, file_name, file_location)
+
 
 class MyHandler(FileSystemEventHandler):
-    i = 1
-
     def on_modified(self, event):
         for file_name in os.listdir(folder_to_track):
             src = folder_to_track + "/" + file_name
             # getting the file extensions
             split_tup = os.path.splitext(file_name)
             file_extension = split_tup[1]
-
+            # statement for each selected extensions
             if file_extension == ".jpg" or file_extension == ".jpeg" or file_extension == ".gif" or file_extension == ".png":
                 file_location = folder_img
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             elif file_extension == ".psd":
                 file_location = folder_psd
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             elif file_extension == ".pdf":
                 file_location = folder_pdf
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             elif file_extension == ".zip" or file_extension == ".gz" or file_extension == ".tgz":
                 file_location = folder_zip
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             elif file_extension == ".ipa":
                 file_location = folder_ipa
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             elif file_extension == ".dmg":
                 file_location = folder_dmg
-                new_destination = file_location + "/" + file_name
-                os.rename(src, new_destination)
-                log_file(file_extension, file_name, file_location)
+                file_transfer(file_location, file_name, file_extension, src)
 
             else:
                 pass
 
-
-def log_file(file_extension, file_name, file_location):
-    print(f'{bcolors.UNDERLINE}{dt_string}{bcolors.ENDC} - [{file_extension.upper()}] {bcolors.HEADER}{file_name}{bcolors.ENDC} was moved to {bcolors.OKGREEN}{file_location}{bcolors.ENDC}')
-
-
-now = datetime.now()
-dt_string = now.strftime("%H:%M:%S")
-
+# Directory for each folder
 folder_to_track = "/Users/guillaumefalvet/Downloads"
 folder_img = "/Users/guillaumefalvet/Pictures"
 folder_psd = "/Users/guillaumefalvet/Downlaods/Folder_PSD"
@@ -81,16 +69,19 @@ folder_pdf = "/Users/guillaumefalvet/Downloads/Folder_PDF"
 folder_zip = "/Users/guillaumefalvet/Downloads/Folder_ZIP"
 folder_ipa = "/Users/guillaumefalvet/Downloads/Folder_IPA"
 folder_dmg = "/Users/guillaumefalvet/Downloads/Folder_DMG"
-print('starting \n')
+
+
+print(f'{bcolors.OKCYAN}STARTING{bcolors.ENDC} \n')
 event_handler = MyHandler()
 observer = Observer()
 observer.schedule(event_handler, folder_to_track, recursive=True)
+
 user_choice = True
 while user_choice:
     observer.start()
     user_input = int(input('Press 1 to exit \n'))
     if user_input == 1:
-        print('stopping')
+        print('\x1B[3mstopping\x1B[0m')
         exit()
     else:
         pass
