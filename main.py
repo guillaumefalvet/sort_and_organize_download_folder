@@ -81,11 +81,20 @@ folder_pdf = "/Users/guillaumefalvet/Downloads/Folder_PDF"
 folder_zip = "/Users/guillaumefalvet/Downloads/Folder_ZIP"
 folder_ipa = "/Users/guillaumefalvet/Downloads/Folder_IPA"
 folder_dmg = "/Users/guillaumefalvet/Downloads/Folder_DMG"
-print('start')
+print('starting \n')
 event_handler = MyHandler()
 observer = Observer()
 observer.schedule(event_handler, folder_to_track, recursive=True)
-observer.start()
+user_choice = True
+while user_choice:
+    observer.start()
+    user_input = int(input('Press 1 to exit \n'))
+    if user_input == 1:
+        print('stopping')
+        exit()
+    else:
+        pass
+
 try:
     while True:
         time.sleep(10)
