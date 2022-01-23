@@ -27,7 +27,7 @@ class MyHandler(FileSystemEventHandler):
             split_tup = os.path.splitext(file_name)
             file_extension = split_tup[1]
 
-            if file_extension == ".jpg" or file_extension == ".gif" or file_extension == ".png":
+            if file_extension == ".jpg" or file_extension == ".jpeg" or file_extension == ".gif" or file_extension == ".png":
                 file_location = folder_img
                 new_destination = file_location + "/" + file_name
                 os.rename(src, new_destination)
