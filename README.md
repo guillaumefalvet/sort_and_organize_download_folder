@@ -8,4 +8,4 @@ example log:
 
   <img align="center" src="https://i.imgur.com/LCBhipV.png">
 
-enjoy 😀
+enjoy 
