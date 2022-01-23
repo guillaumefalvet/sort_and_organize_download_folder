@@ -5,6 +5,5 @@
 Basically move files from download folder to specific directory based on their extension:
 
 example log: 
-<h1 align="center">
-  <img src="https://i.imgur.com/LCBhipV.png">
-</h1>
+
+  <img align="center" src="https://i.imgur.com/LCBhipV.png">
