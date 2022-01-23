@@ -7,3 +7,5 @@ Basically move files from download folder to specific directory based on their e
 example log: 
 
   <img align="center" src="https://i.imgur.com/LCBhipV.png">
+
+enjoy 😀
