@@ -20,43 +20,43 @@ def log_file(file_extension, file_name, file_location):
     print(f'{bcolors.UNDERLINE}{hour_and_minute}{bcolors.ENDC} - [{file_extension.upper()}] {bcolors.HEADER}{file_name}{bcolors.ENDC} was moved to {bcolors.OKGREEN}{file_location}{bcolors.ENDC}')
 
 
-def file_transfer(file_location, file_name, file_extension, src):
+def file_transfer(file_location, file_name, file_extension, file_source):
     new_destination = file_location + "/" + file_name
-    os.rename(src, new_destination)
+    os.rename(file_source, new_destination)
     log_file(file_extension, file_name, file_location)
 
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
         for file_name in os.listdir(folder_to_track):
-            src = folder_to_track + "/" + file_name
+            file_source = folder_to_track + "/" + file_name
             # getting the file extensions
             split_tup = os.path.splitext(file_name)
             file_extension = split_tup[1]
             # statement for each selected extensions
             if file_extension == ".jpg" or file_extension == ".jpeg" or file_extension == ".gif" or file_extension == ".png":
                 file_location = folder_img
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             elif file_extension == ".psd":
                 file_location = folder_psd
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             elif file_extension == ".pdf":
                 file_location = folder_pdf
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             elif file_extension == ".zip" or file_extension == ".gz" or file_extension == ".tgz":
                 file_location = folder_zip
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             elif file_extension == ".ipa":
                 file_location = folder_ipa
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             elif file_extension == ".dmg":
                 file_location = folder_dmg
-                file_transfer(file_location, file_name, file_extension, src)
+                file_transfer(file_location, file_name, file_extension, file_source)
 
             else:
                 pass
