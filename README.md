@@ -1,4 +1,4 @@
-# Sort and organize and keep your download folder clean using python 3
+# Sort, organize and keep your download folder clean using python 3
 ## Installation
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install [watchdog](https://pypi.org/project/watchdog/)
 ```commandline
