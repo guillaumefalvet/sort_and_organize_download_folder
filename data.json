@@ -1,0 +1,63 @@
+{
+    "ZIP": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
+        "extension": ".zip"
+    },
+    "TGZ": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
+        "extension": ".tgz"
+    },
+    "GZ": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
+        "extension": ".gz"
+    },
+    "GIF": {
+        "directory": "/Users/guillaumefalvet/Pictures",
+        "extension": ".gif"
+    },
+    "JPG": {
+        "directory": "/Users/guillaumefalvet/Pictures",
+        "extension": ".jpg"
+    },
+    "JPEG": {
+        "directory": "/Users/guillaumefalvet/Pictures",
+        "extension": ".jpeg"
+    },
+    "PNG": {
+        "directory": "/Users/guillaumefalvet/Pictures",
+        "extension": ".png"
+    },
+    "PSD": {
+        "directory": "/Users/guillaumefalvet/Downlaods/Folder_PSD",
+        "extension": ".psd"
+    },
+    "IPA": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_IPA",
+        "extension": ".ipa"
+    },
+    "PDF": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_PDF",
+        "extension": ".pdf"
+    },
+    "JS": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
+        "extension": ".js"
+    },
+    "CSS": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
+        "extension": ".css"
+    },
+    "HTML": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
+        "extension": ".html"
+    },
+    "APK": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_APK",
+        "extension": ".apk"
+    },
+    "DMG": {
+        "directory": "/Users/guillaumefalvet/Downloads/Folder_DMG",
+        "extension": ".dmg"
+    }
+}
+
