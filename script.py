@@ -12,16 +12,7 @@ extension = []
 for i in data.values():
     directory.append(i['directory'])
     extension.append(i['extension'])
-    new_dict = dict(zip(directory, extension))
-
-hour_and_minute = datetime.now().strftime("%H:%M:%S")
-
-
-def file_transfer(file_location, file_name, file_extension, file_source):
-    new_destination = file_location + "/" + file_name
-    os.rename(file_source, new_destination)
-    log_file(file_extension, file_name, file_location)
-
+    config_data = dict(zip(directory, extension))
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
@@ -31,11 +22,11 @@ class MyHandler(FileSystemEventHandler):
             split_tup = os.path.splitext(file_name)
             file_extension = split_tup[1]
             # statement for each selected extensions
-            for a, b in new_dict.items():
+            for a, b in config_data.items():
                 if file_extension == b:
                     new_destination = a + "/" + file_name
                     os.rename(file_source, new_destination)
-                    print(f'\033[4m{hour_and_minute}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{a}\033[0m')
+                    print(f'\033[4m{datetime.now().strftime("%H:%M:%S")}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{a}\033[0m')
                 else:
                     pass
 
