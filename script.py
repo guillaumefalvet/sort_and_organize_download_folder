@@ -14,6 +14,7 @@ for i in data.values():
     extension.append(i['extension'])
     config_data = dict(zip(directory, extension))
 
+
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
         for file_name in os.listdir(folder_to_track):
@@ -26,13 +27,14 @@ class MyHandler(FileSystemEventHandler):
                 if file_extension == b:
                     new_destination = a + "/" + file_name
                     os.rename(file_source, new_destination)
-                    print(f'\033[4m{datetime.now().strftime("%H:%M:%S")}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{a}\033[0m')
+                    print(
+                        f'\033[4m{datetime.now().strftime("%H:%M:%S")}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{a}\033[0m')
                 else:
                     pass
 
+
 # Directory for each folder
 folder_to_track = "/Users/guillaumefalvet/Downloads"
-
 
 print(f'STARTING \n')
 event_handler = MyHandler()
