@@ -9,7 +9,8 @@ with open('data.json', 'r') as data_file:
     data = json.load(data_file)
 directory = []
 extension = []
-for i in data.values():
+config_data = []
+for i in data["outputFolders"]:
     directory.append(i['directory'])
     extension.append(i['extension'])
     config_data = dict(zip(extension, directory))
@@ -17,8 +18,8 @@ for i in data.values():
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
-        for file_name in os.listdir(folder_to_track):
-            file_source = folder_to_track + "/" + file_name
+        for file_name in os.listdir(data["trackingFolder"]):
+            file_source = data["trackingFolder"] + "/" + file_name
             split_tup = os.path.splitext(file_name)
             file_extension = split_tup[1]
             for config_data_ext, config_data_path in config_data.items():
@@ -30,27 +31,17 @@ class MyHandler(FileSystemEventHandler):
                     pass
 
 
-folder_to_track = "/Users/guillaumefalvet/Downloads"
-
-
 print(f'STARTING \n')
 event_handler = MyHandler()
 observer = Observer()
-observer.schedule(event_handler, folder_to_track, recursive=True)
+observer.schedule(event_handler, data["trackingFolder"], recursive=True)
 
 user_choice = True
 while user_choice:
     observer.start()
-    user_input = int(input('Press 1 to exit \n'))
-    if user_input == 1:
+    user_input = input('Press any to exit \n')
+    if user_input:
         print('\x1B[3mstopping\x1B[0m')
         exit()
     else:
         pass
-
-try:
-    while True:
-        time.sleep(10)
-except KeyboardInterrupt:
-    observer.stop()
-observer.join()
