@@ -14,3 +14,6 @@ example log:
 
 ## Compiling
 if you want to compile the app, you should add the full path of the data.json
+
+## Note
+Console version can be found [here](https://github.com/pressfguillaume/sort_and_organize_download_folder/tree/console).
