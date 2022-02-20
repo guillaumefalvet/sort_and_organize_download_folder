@@ -3,63 +3,78 @@
   "outputFolders": [
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
-      "extension": ".zip"
+      "extension": ".zip",
+      "color": "#EFA017"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
-      "extension": ".tgz"
+      "extension": ".tgz",
+      "color": "#EFA017"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_ZIP",
-      "extension": ".gz"
+      "extension": ".gz",
+      "color": "#EFA017"
     },
     {
       "directory": "/Users/guillaumefalvet/Pictures",
-      "extension": ".gif"
+      "extension": ".gif",
+      "color": "#70EF17"
     },
     {
       "directory": "/Users/guillaumefalvet/Pictures",
-      "extension": ".jpg"
+      "extension": ".jpg",
+      "color": "#70EF17"
     },
     {
       "directory": "/Users/guillaumefalvet/Pictures",
-      "extension": ".jpeg"
+      "extension": ".jpeg",
+      "color": "#70EF17"
     },
     {
       "directory": "/Users/guillaumefalvet/Pictures",
-      "extension": ".png"
+      "extension": ".png",
+      "color": "#70EF17"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_PSD",
-      "extension": ".psd"
+      "extension": ".psd",
+      "color": "#EF1717"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_IPA",
-      "extension": ".ipa"
+      "extension": ".ipa",
+      "color": "#DC17EF"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_PDF",
-      "extension": ".pdf"
+      "extension": ".pdf",
+      "color": "#EF1796"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
-      "extension": ".js"
+      "extension": ".js",
+      "color": "#1785EF"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
-      "extension": ".css"
+      "extension": ".css",
+      "color": "#1785EF"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_WEB",
-      "extension": ".html"
+      "extension": ".html",
+      "color": "#1785EF"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_APK",
-      "extension": ".apk"
+      "extension": ".apk",
+      "color": "#1FEF17"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_DMG",
-      "extension": ".dmg"
+      "extension": ".dmg",
+      "color": "#9EEF17"
     }
   ]
 }

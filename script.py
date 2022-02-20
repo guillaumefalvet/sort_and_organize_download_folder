@@ -9,16 +9,23 @@ from datetime import datetime
 from subprocess import call
 import json
 
-# Add the full path of the json file if you decide to compile
+
 with open('data.json', 'r') as data_file:
     data = json.load(data_file)
 directory = []
 extension = []
+color = []
+config_color = []
 config_data = []
 for i in data["outputFolders"]:
     directory.append(i['directory'])
     extension.append(i['extension'])
+    color.append(i['color'])
     config_data = dict(zip(extension, directory))
+for i in data["outputFolders"]:
+    extension.append(i['extension'])
+    color.append(i['color'])
+    config_color = dict(zip(extension, color))
 
 
 def disable_input():
@@ -35,26 +42,37 @@ class MyHandler(FileSystemEventHandler):
                 if file_extension == config_data_ext:
                     new_destination = config_data_path + "/" + file_name
                     os.rename(file_source, new_destination)
+                    if file_extension == ".dmg":
+                        call(["open", new_destination])
+                    else:
+                        pass
                     hour_and_minute = datetime.now().strftime("%H:%M:%S")
                     message = f'  [{hour_and_minute}] - {file_name} was moved to {config_data_path}\n'
                     print(f'\033[4m{datetime.now().strftime("%H:%M:%S")}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{config_data_path}\033[0m')
                     file_path = config_data_path
+
                     folder_button = tk.Button(window, text='Open in finder',
                                               width=9,
                                               padx=2,
                                               pady=2,
                                               cursor="hand",
-                                              bd=1, highlightthickness=0,
+                                              bd=1,
                                               command=lambda: call(["open", file_path]))
                     open_file_button = tk.Button(window, text=f'Open file [{file_extension.upper()}]',
-                                                 width=8,
+                                                 width=10,
                                                  padx=4,
                                                  pady=2,
                                                  anchor='w',
                                                  cursor="hand",
-                                                 bd=1, highlightthickness=0,
+                                                 bd=1,
                                                  command=lambda: call(["open", new_destination]))
 
+                    for config_color_ext, config_color_color in config_color.items():
+                        if config_color_ext == config_data_ext:
+                            open_file_button.config(highlightbackground=config_color_color, highlightthickness=2)
+                            folder_button.config(highlightbackground=config_color_color, highlightthickness=2)
+                        else:
+                            pass
                     window.window_create(tk.END, window=open_file_button)
                     window.window_create(tk.END, window=folder_button)
                     window.configure(state='normal')
@@ -71,8 +89,8 @@ observer.start()
 root = tk.Tk()
 root.geometry("950x300")
 root.title('Logs: Download folder file movement automation')
-#Add some transparency
-#root.attributes('-alpha', 0.95)
+# Add some transparency
+# root.attributes('-alpha', 0.95)
 window = tk.Text(
     root,
     font=('Helvetica', 13),
