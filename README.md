@@ -9,7 +9,7 @@ pip install watchdog
 Basically move files from download folder to specific directory based on their extension:
 example log:
 
-  <img align="center" src="https://i.imgur.com/LHp93zQ.png">
+  <img align="center" src="https://i.imgur.com/ERX5NmE.png">
 
 
 ## Compiling
