@@ -3,6 +3,7 @@
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install [watchdog](https://pypi.org/project/watchdog/)
 ```commandline
 pip install watchdog
+pip install pync
 ```
 
 ## Usage
