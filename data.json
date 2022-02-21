@@ -23,6 +23,11 @@
     },
     {
       "directory": "/Users/guillaumefalvet/Pictures",
+      "extension": ".icns",
+      "color": "#70EF17"
+    },
+    {
+      "directory": "/Users/guillaumefalvet/Pictures",
       "extension": ".jpg",
       "color": "#70EF17"
     },
@@ -39,7 +44,7 @@
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_PSD",
       "extension": ".psd",
-      "color": "#EF1717"
+      "color": "#00EADB"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_IPA",
@@ -69,7 +74,7 @@
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_APK",
       "extension": ".apk",
-      "color": "#1FEF17"
+      "color": "#9200EA"
     },
     {
       "directory": "/Users/guillaumefalvet/Downloads/Folder_DMG",

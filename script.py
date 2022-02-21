@@ -8,9 +8,10 @@ import os
 from datetime import datetime
 from subprocess import call
 import json
+import pync
 
 
-with open('data.json', 'r') as data_file:
+with open('organize_download_ui.json', 'r') as data_file:
     data = json.load(data_file)
 directory = []
 extension = []
@@ -26,6 +27,13 @@ for i in data["outputFolders"]:
     extension.append(i['extension'])
     color.append(i['color'])
     config_color = dict(zip(extension, color))
+
+
+def notification_of_file_movement(title, file_name, path):
+    pync.notify('{} was moved to {}'.format(file_name, path),
+                title='{}'.format(title),
+                execute='open {}'.format(path),
+                )
 
 
 def disable_input():
@@ -50,7 +58,7 @@ class MyHandler(FileSystemEventHandler):
                     message = f'  [{hour_and_minute}] - {file_name} was moved to {config_data_path}\n'
                     print(f'\033[4m{datetime.now().strftime("%H:%M:%S")}\033[0m - [{file_extension.upper()}] \033[95m{file_name}\033[0m was moved to \033[92m{config_data_path}\033[0m')
                     file_path = config_data_path
-
+                    notification_of_file_movement(file_extension.upper(), file_name, file_path)
                     folder_button = tk.Button(window, text='Open in finder',
                                               width=9,
                                               padx=2,
@@ -87,8 +95,8 @@ observer = Observer()
 observer.schedule(event_handler, data["trackingFolder"], recursive=True)
 observer.start()
 root = tk.Tk()
-root.geometry("950x300")
-root.title('Logs: Download folder file movement automation')
+root.geometry("1000x400")
+root.title('Log')
 # Add some transparency
 # root.attributes('-alpha', 0.95)
 window = tk.Text(
