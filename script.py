@@ -11,7 +11,7 @@ import json
 import pync
 
 
-with open('organize_download_ui.json', 'r') as data_file:
+with open('data.json', 'r') as data_file:
     data = json.load(data_file)
 directory = []
 extension = []
